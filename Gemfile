@@ -20,6 +20,7 @@ group :development, :test do
   gem 'capybara'
   gem 'factory_bot_rails' 
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'coveralls', require: false 
 end
 
 group :development do
