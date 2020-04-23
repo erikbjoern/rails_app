@@ -7,7 +7,7 @@ feature 'User can create articles' do
     context 'User can successfully create an article [Happy Path]' do
         before do
             fill_in 'article_title', with: 'Happy holidays'
-            fill_in 'article_text', with: 'Buy your gifts now!'
+            fill_in 'article_content', with: 'Buy your gifts now!'
             click_on 'commit'
         end
 
