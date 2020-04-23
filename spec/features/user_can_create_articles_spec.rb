@@ -1,12 +1,10 @@
-require 'rails_helper'
-
-feature 'User can commits' do
+feature 'User can create articles' do
     before do
         visit root_path
         click_on 'New Article'
     end
 
-    context 'Successfully create an article [Happy Path]' do
+    context 'User can successfully create an article [Happy Path]' do
         before do
             fill_in 'article_title', with: 'Happy holidays'
             fill_in 'article_text', with: 'Buy your gifts now!'

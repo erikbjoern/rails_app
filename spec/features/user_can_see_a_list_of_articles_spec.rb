@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 feature 'List articles on index page' do
     context 'with articles in database' do
         before do
