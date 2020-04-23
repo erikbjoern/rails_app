@@ -2,4 +2,6 @@
 <br>
 <p><%= @article.content %></p>
 <br>
+<p><%= link_to 'Delete Article', article_path(@article), method: :delete %></p>
+<br>
 <p><%= link_to 'To start page', articles_path %></p>
