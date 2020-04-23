@@ -31,12 +31,12 @@ feature 'User can create articles' do
 
     context "User doesn't enter a title for the article [Sad Path]" do
         before do
-            fill_in 'article_text', with: 'Buy your gifts now!'
+            fill_in 'article_content', with: 'Buy your gifts now!'
             click_on 'commit'
         end
 
         it 'User should see error message' do
-            expect(page).to have_content 'Your article needs a title.'
+            expect(page).to have_content "Title can't be blank"
         end
     end 
 
@@ -47,7 +47,7 @@ feature 'User can create articles' do
         end
     
         it 'User should see error message' do
-            expect(page).to have_content 'Your article needs content.'
+            expect(page).to have_content "Content can't be blank"
         end
     end 
     
@@ -57,7 +57,7 @@ feature 'User can create articles' do
         end
     
         it 'User should see error message' do
-            expect(page).to have_content 'Your article needs a title and content.'
+            expect(page).to have_content "Title can't be blank Content can't be blank"
         end
     end 
 end
