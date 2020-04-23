@@ -8,19 +8,19 @@ feature 'User can edit articles' do
         end
 
         it 'user can edit title' do
-            fill_in 'title', with: 'This is edited'
+            fill_in 'article_title', with: 'This is edited'
             click_on 'Save'
             expect(page).to have_content 'This is edited'
         end
 
         it 'user can edit content' do
-            fill_in 'content', with: 'Never to be edited again.'
+            fill_in 'article_content', with: 'Never to be edited again.'
             click_on 'Save'
             expect(page).to have_content 'Never to be edited again.'
         end
 
         it 'user gets a confirmation message when edit is saved' do
-            fill_in 'title', with: 'To be confirmed'
+            fill_in 'article_title', with: 'To be confirmed'
             click_on 'Save'
             expect(page).to have_content 'Your changes was successfully saved.'
         end
