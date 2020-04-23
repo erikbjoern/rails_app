@@ -1,4 +1,13 @@
-# README
+# [WIP] Rails app
+
+*Week three of CA bootcamp*
+
+**To be implemented and tested:**
+Feature 'User can edit article'
+Feature 'User can delete article'
+Full app navigation
+
+***
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
