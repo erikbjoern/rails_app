@@ -10,9 +10,13 @@ class ArticlesController < ApplicationController
   def new
     @article = Article.new
   end
+  
+  def edit
+    @article = Article.find(params[:id])
+  end
 
   def create
-    @article = Article.create(params.require(:article).permit(:title, :content))
+    @article = Article.create(article_params)
     
     if @article.save
       redirect_to @article, notice: "Your article was successfully created."
@@ -21,9 +25,25 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def update
+    @article = Article.find(params[:id])
+
+    if @article.update(article_params)
+      redirect_to @article, notice: "Your changes was successfully saved."
+    else
+      render 'edit'
+    end
+  end
+
   def destroy
     @article = Article.find(params[:id])
     @article.destroy
     redirect_to articles_path, notice: "Your article was successfully deleted."
+  end
+
+  private
+
+  def article_params
+    params.require(:article).permit(:title, :content)
   end
 end
