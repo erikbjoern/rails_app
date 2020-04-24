@@ -34,17 +34,50 @@ feature 'User can navigate the app' do
             click_on 'To start page'
             click_on 'Breaking news!'
         end
-
+        
         it 'displaying its title' do
             expect(page).to have_content 'Breaking news!'
         end
-
+        
         it 'and its content' do
             expect(page).to have_content 'Look at all these people breaking todays news.'
         end
     end
     
-    context 'back to the index of articles again' do
+    context 'into the editing view for the article' do
+        before do
+            click_on 'To start page'
+            click_on 'Breaking news!'
+            click_on 'Edit Article'
+        end
+
+        it 'displaying field for editing the title' do
+            expect(page).to have_content 'Title'            
+        end
+
+        it 'displaying field for editing the content' do
+            expect(page).to have_content 'Content'            
+        end
+    end
+    
+    context 'back to displaying the specific article' do
+        before do
+            click_on 'To start page'
+            click_on 'Breaking news!'
+            click_on 'Edit Article'
+            click_on 'Back (discard changes)'
+        end
+        
+        it 'displaying the articles content' do
+            expect(page).to have_content 'Look at all these people breaking todays news.'
+        end
+        
+        it 'but not the field for editing it' do
+            expect(page).not_to have_content 'Content'            
+        end
+    end
+
+    context 'back to the index of articles' do
         before do
             click_on 'To start page'
             click_on 'Breaking news!'
@@ -55,8 +88,25 @@ feature 'User can navigate the app' do
             expect(page).to have_content 'A new title'
         end
         
-        it 'but not its content' do
+        it 'but not its content.' do
             expect(page).not_to have_content 'With new content!'
         end
     end
+
+    context 'Directly from the editing view back to the start page' do
+        before do 
+            click_on 'To start page'
+            click_on 'Breaking news!'
+            click_on 'Edit Article'
+            click_on 'To start page (discard changes)'
+        end
+
+        it 'displaying the unedited title' do
+            expect(page).to have_content 'Breaking news!'
+        end
+        
+        it 'but not its content.' do
+            expect(page).not_to have_content 'Look at all these people breaking todays news.'
+        end
+    end 
 end
