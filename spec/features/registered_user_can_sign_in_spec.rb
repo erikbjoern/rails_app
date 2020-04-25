@@ -6,10 +6,11 @@ feature 'Registered user can sign in' do
             click_on 'Sign in'
             fill_in 'Email', with: user.email
             fill_in 'Password', with: user.password
+            click_on 'Log in'
         end
 
         it 'user should see welcome message' do
-            expect(page).to have_content 'Welcome'    
+            expect(page).to have_content 'Signed in successfully.'    
         end
     end
 end
