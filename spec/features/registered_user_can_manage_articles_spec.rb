@@ -56,20 +56,14 @@ feature 'registered user can manage articles' do
     end
 
     context 'unregistered user with direct path' do
-        it 'cannot acces create method' do
+        it 'cannot see create article page' do
             visit new_article_path
             expect(page).to have_content 'You need to sign in or sign up before continuing.'
         end
 
-        it 'cannot perform edit method' do
+        it 'cannot see edit page' do
             article = Article.find_by_title('Breaking news!')
-            visit article_path(article)
-            expect(page).to have_content 'You need to sign in or sign up before continuing.'
-        end
-
-        it 'cannot perform delete method' do
-            article = Article.find_by_title('Breaking news!')
-            visit article_path(article)
+            visit article_path(article)/edit
             expect(page).to have_content 'You need to sign in or sign up before continuing.'
         end
     end
