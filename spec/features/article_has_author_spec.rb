@@ -10,7 +10,9 @@ feature 'Article has author' do
         end
 
         it 'Articles author is user' do
-            expect(@article.author_id).to eq author.id
+            article = Article.find_by(title: 'The Title')
+            binding.pry
+            expect(@article.user_id).to eq author.id
         end
     end
 end
