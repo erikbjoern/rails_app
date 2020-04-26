@@ -54,4 +54,23 @@ feature 'registered user can manage articles' do
             expect(page).not_to have_content 'Delete Article'  
         end
     end
+
+    context 'unregistered user with direct path' do
+        it 'cannot acces create method' do
+            visit new_article_path
+            expect(page).to have_content 'You need to sign in or sign up before continuing.'
+        end
+
+        it 'cannot perform edit method' do
+            article = Article.find_by_title('Breaking news!')
+            visit article_path(article)
+            expect(page).to have_content 'You need to sign in or sign up before continuing.'
+        end
+
+        it 'cannot perform delete method' do
+            article = Article.find_by_title('Breaking news!')
+            visit article_path(article)
+            expect(page).to have_content 'You need to sign in or sign up before continuing.'
+        end
+    end
 end
