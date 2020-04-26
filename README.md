@@ -2,10 +2,9 @@
 
 *Week three of CA bootcamp*
 
-**To be implemented and tested:**
-Feature 'User can edit article'
-Feature 'User can delete article'
-Full app navigation
+[Deployed app](https://immense-lake-16610.herokuapp.com/)
+
+This is a simple article app made with Ruby on Rails.
 
 ***
 
