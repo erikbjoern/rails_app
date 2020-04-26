@@ -63,7 +63,7 @@ feature 'registered user can manage articles' do
 
         it 'cannot see edit page' do
             article = Article.find_by_title('Breaking news!')
-            visit article_path(article)/edit
+            visit edit_article_path(article)
             expect(page).to have_content 'You need to sign in or sign up before continuing.'
         end
     end

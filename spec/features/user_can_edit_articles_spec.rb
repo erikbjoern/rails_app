@@ -1,8 +1,10 @@
 feature 'User can edit articles' do
     context '- With articles in database' do
         let(:article) { create(:article, title: 'To be edited', content: 'Ever to be read again.') }
+        let(:user) { create(:user) }
         
         before do
+            login_as(user, scope: :user)
             visit article_path(article.id)
             click_on 'Edit Article'
         end

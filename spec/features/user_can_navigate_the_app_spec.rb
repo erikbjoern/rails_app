@@ -1,5 +1,7 @@
 feature 'User can navigate the app' do
+    let(:user) { create(:user) }
     before do
+        login_as(user, scope: :user)
         create(:article, title: 'Breaking news!', content: 'Look at all these people breaking todays news.')
 
         visit root_path
