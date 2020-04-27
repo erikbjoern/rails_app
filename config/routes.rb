@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  devise_for :admins
   get 'articles/index'
   root controller: :articles, action: :index
   resources :articles
-  resources :admins
+  resources :users
 end
