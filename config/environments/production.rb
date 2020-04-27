@@ -1,5 +1,5 @@
 Rails.application.configure do
-  config.action_mailer.default_url_options = { host: https://immense-lake-16610.herokuapp.com/}
+  config.action_mailer.default_url_options = { host: 'immense-lake-16610.herokuapp.com'}
   config.cache_classes = true
   config.eager_load = true
   config.consider_all_requests_local       = false
